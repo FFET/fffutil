@@ -18,7 +18,6 @@ const banner = `/*!
 const outputs = [
   {
     file: "dist/index.js",
-    // file: `lib/${name}@${version}.js`,
     banner,
     format: "umd",
     name: "fffutil",
@@ -52,11 +51,8 @@ const config = outputs.map((output, i) => {
       commonjs(),
       mode === "production" &&
         terser({
-          compress: { warnings: true, drop_console: true, unused: true },
-          // compress: { warnings: false, drop_console: false, unused: true },
+          compress: { warnings: false, drop_console: false, unused: true },
           output: {
-            // comments: false,
-            // comments: /\/*!\n/i,
             comments: /fffutil/i,
           },
         }),
