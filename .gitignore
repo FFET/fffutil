@@ -1,0 +1,7 @@
+node_modules
+*.log
+.dea
+.DS_Store
+dist
+es
+lib
