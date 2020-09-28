@@ -1,6 +1,7 @@
 /**
  * base64 to file
  *
+ * @author Jay
  * @since 0.0.1
  * @returns {file} Returns the file.
  * @example

@@ -1,6 +1,7 @@
 /**
  * browser generate uuid
  *
+ * @author Jay
  * @since 0.0.1
  * @returns {string} Returns the uuid.
  * @example

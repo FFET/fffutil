@@ -1,10 +1,15 @@
 /**
+ * deep clone
+ *
  * @author Jay
- * @date 2020-08-27
- * @description deep clone
+ * @since 0.0.1
+ * @param {object} obj
+ * @returns {object} Returns new object.
+ * @example
+ *
+ * deepClone(object)
  */
-
-export const deepClone = (obj) => {
+export function deepClone(obj) {
   if (obj === null) return null;
   let clone = Object.assign({}, obj);
   Object.keys(clone).forEach(
@@ -15,4 +20,4 @@ export const deepClone = (obj) => {
     : Array.isArray(obj)
     ? Array.from(obj)
     : clone;
-};
+}

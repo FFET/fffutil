@@ -1,6 +1,7 @@
 /**
  * get value from url by key
  *
+ * @author Jay
  * @since 0.0.1
  * @param {string} name key
  * @returns {string} Returns the value.
