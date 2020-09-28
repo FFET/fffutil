@@ -9,6 +9,7 @@ import { deepClone } from "./deepClone";
 import { getQueryString } from "./getQueryString";
 import { generateUuid } from "./generateUuid";
 import { base64toFile } from "./base64toFile";
+import { addWaterMark } from "./watermark";
 
 /**
  * foo test
@@ -22,4 +23,4 @@ function foo(str) {
 }
 
 // export
-export { foo, generateUuid, getQueryString, deepClone, base64toFile, foo2, foo3 };
+export { foo, generateUuid, getQueryString, deepClone, base64toFile, foo2, foo3, addWaterMark };

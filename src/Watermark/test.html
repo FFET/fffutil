@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .containers{
+            width: 100%;
+            height: 100vh;
+        }
+        body,html{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script src="../watermark.js"></script>
+</head>
+<body>
+    <div class="containers" id="app"></div>
+    <script>
+        const appElement = document.querySelector("#app");
+        addWaterMark({ username:"程东升", container: appElement });
+    </script>
+</body>
+</html>
