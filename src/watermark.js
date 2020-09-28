@@ -1,10 +1,3 @@
-// import Watermark from "./watermark";
-// import CanvasWay from "./core/canvas";
-// import ElementWay from "./core/element";
-// import SvgWay from "./core/svg";
-// import creator, { observer, disconnect } from "./helpers/creator";
-// import bindCSS from "./helpers/bindCSS";
-
 const _id = `__gwm_${+new Date()}`;
 const MutationObserver =
   window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
@@ -93,46 +86,6 @@ class ElementWay {
     for (; i < column * rows; i++) wrap.appendChild(this._createItem());
     return wrap;
   }
-}
-
-function setStyle(elem, key, value) {
-  elem.style[key] = value;
-}
-
-function isSupport(attribute) {
-  return attribute in document.documentElement.style;
-}
-
-function bindCSS(elem, css) {
-  return Object.keys(css).forEach((key) => setStyle(elem, key, css[key]));
-}
-
-function bindMutationEvent(target, container, callback) {
-  const eventList = [
-    "DOMAttrModified",
-    "DOMAttributeNameChanged",
-    "DOMCharacterDataModified",
-    "DOMElementNameChanged",
-    "DOMNodeInserted",
-    "DOMNodeInsertedIntoDocument",
-    "DOMNodeRemoved",
-    "DOMNodeRemovedFromDocument",
-    "DOMSubtreeModified",
-  ];
-  eventList.map((eventName) => target.addEventListener(eventName, () => callback(), false));
-  document.body.addEventListener("DOMSubtreeModified", () => callback(), false);
-  return {
-    containerObserver: {
-      disconnect: () =>
-        container.removeEventListener("DOMSubtreeModified", () => callback(), false),
-    },
-    observer: {
-      disconnect: () =>
-        eventList.map((eventName) =>
-          target.removeEventListener(eventName, () => callback(), false)
-        ),
-    },
-  };
 }
 
 function observer(target, container, callback) {
@@ -348,7 +301,7 @@ class GenerateWatermark {
   }
 }
 
-export function addWaterMark({ username, container, gwm = new GenerateWatermark(), options = {} }) {
+function addWaterMark({ username, container, gwm = new GenerateWatermark(), options = {} }) {
   gwm.creation({
     txt: `${username} ${new Date().toLocaleDateString()} 内部资料,请勿外传`,
     width: 300,
