@@ -16,6 +16,8 @@ cdn
 
 https://unpkg.com/fffutil@0.1.1/dist/index.js
 
+https://unpkg.com/fffutil@latest/dist/index.js
+
 https://cdn.jsdelivr.net/npm/fffutil@latest
 
 ## Methods
@@ -24,3 +26,4 @@ https://cdn.jsdelivr.net/npm/fffutil@latest
 - getQueryString
 - deepClone
 - base64toFile
+- waterMark

@@ -10,9 +10,7 @@ const mode = process.env.NODE_ENV;
 
 const banner = `/*!
  * ${name}.js ${version}
- * Build in ${new Date().getFullYear()}-${
-  new Date().getMonth() + 1
-}-${new Date().getDate()}  ScorpionJay
+ * Build in ${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}  FFET
  */`;
 
 const outputs = [

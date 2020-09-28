@@ -12,6 +12,7 @@ import { base64toFile } from "./file/base64toFile";
 import { urlToBase64 } from "./file/urlToBase64";
 import { download } from "./download";
 import { getStrLength } from "./string";
+import { waterMark } from "./waterMark";
 
 /**
  * foo test
@@ -34,6 +35,7 @@ export {
   urlToBase64,
   download,
   getStrLength,
+  waterMark,
   foo2,
   foo3,
 };

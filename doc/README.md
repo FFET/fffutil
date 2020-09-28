@@ -4,3 +4,4 @@
 - getQueryString
 - deepClone
 - base64toFile
+- waterMark
