@@ -14,7 +14,15 @@ import { download } from "./download";
 import { getStrLength } from "./string";
 import { waterMark } from "./waterMark";
 import { debounce } from "./debounce";
-
+import { throttle } from "./throttle";
+import {
+  floatCalcAddition,
+  floatCalcSubtraction,
+  floatCalcMultiplication,
+  floatCalcDivision,
+} from "./calculators";
+import { bubbles } from "./bubbles";
+import { getDateBySplit, getDateFormat } from "./dates";
 /**
  * foo test
  *x
@@ -40,4 +48,12 @@ export {
   foo2,
   foo3,
   debounce,
+  floatCalcAddition,
+  floatCalcSubtraction,
+  floatCalcMultiplication,
+  floatCalcDivision,
+  bubbles,
+  throttle,
+  getDateBySplit,
+  getDateFormat,
 };

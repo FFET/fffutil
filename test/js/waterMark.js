@@ -311,12 +311,7 @@ class GenerateWatermark {
 /**
  *  water mask
  */
-export function waterMark({
-  txt = "watermask",
-  container,
-  gwm = new GenerateWatermark(),
-  options = {},
-}) {
+function waterMark({ txt = "watermask", container, gwm = new GenerateWatermark(), options = {} }) {
   gwm.creation({
     txt,
     width: 300,
@@ -334,7 +329,7 @@ export function waterMark({
   return gwm;
 }
 
-export function removeWaterMark(gwm) {
+function removeWaterMark(gwm) {
   gwm.cancel();
   gwm.gwmDom.remove();
 }

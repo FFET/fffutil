@@ -1,21 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>water mask</title>
-    <style>
-      #container {
-        height: 500px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="container">test water mask</div>
-  </body>
-  <!-- <script src="../dist/index.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/fffutil@latest"></script>
-  <script>
-    fffutil.waterMark({ txt: "water mask", container: document.getElementById("container") });
-  </script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>water mask</title>
+  <style>
+    #container {
+      height: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <h3>test water mask</h3>
+    <!-- 编辑-撤消重做 -->
+    <h3>historyList</h3>
+    <div class="btns">
+      <button onclick="prev()" class="prev">-</button>
+      <button onclick="next()" class="next">+</button>
+      <button onclick="add()">加属性</button>
+    </div>
+    <!-- 防抖&&节流 -->
+    <h3>输入框 debounce</h3>
+    <input type="text" id="debounceInput" value="">
+    <input type="text" id="debounceTarget" value="">
+    <h3>输入框 throttle</h3>
+    <input type="text" id="throttleInput" value="">
+    <input type="text" id="throttleTarget" value="">
+    <h3>事件冒泡</h3>
+    <div id="evt1">
+      <button>事件0</button>
+      <div id="evt2">
+        <button>事件1</button>
+        <div id="evt3">
+          <button>事件2</button>
+          <div id="evt4">
+            <button>事件3</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3>日期格式转换</h3>
+  </div>
+</body>
+<!-- <script src="https://cdn.jsdelivr.net/npm/fffutil@latest"></script> -->
+<script src="./js/waterMark.js"></script>
+<script src="./js/historyList.js"></script>
+<script src="./js/debounce.js"></script>
+<script src="./js/throttle.js"></script>
+<script src="./js/bubbles.js"></script>
+<script src="./js/dates.js"></script>
+<script>
+  waterMark({ txt: `程东升 内部资料,请勿外传`, container: document.getElementById("container") }); //水印
+
+  //----------------------------------------------------------------
+  let i = 1;
+  let list = {
+    name: "小明",
+    sex: "男",
+    age: "20",
+    eat: function () {
+      return "banana"
+    },
+    say: function () {
+      return "chinese"
+    }
+  }
+  historyList.push(list);
+  function add() {
+    list['rank' + i++] = "cto" + i;
+    historyList.push(list);
+  }
+  function prev() {
+    if (historyList.canBack()) {
+      historyList.back();
+      const currentData = historyList.getCurrent();
+      console.log(historyList);
+    } else {
+      console.log("can not back");
+    }
+  }
+  function next() {
+    if (historyList.canForward()) {
+      historyList.forward();
+      const currentData = historyList.getCurrent();
+      console.log(historyList);
+    } else {
+      console.log("can not forward");
+    }
+  }
+  //-----------------------------------------------------------------
+
+  // debounce(防抖)
+  var debounceInputElmt = document.getElementById('debounceInput');
+  var debounceTargetElmt = document.getElementById('debounceTarget');
+  debounceInputElmt.addEventListener('input', debounce(function () {
+    debounceTargetElmt.value = (debounceInputElmt.value || '').toUpperCase();
+  }, 500));
+
+  // throttle(节流)
+  var throttleInputElmt = document.getElementById('throttleInput');
+  var throttleTargetElmt = document.getElementById('throttleTarget');
+  throttleInputElmt.addEventListener('input', throttle(function () {
+    throttleTargetElmt.value = (throttleInputElmt.value || '').toUpperCase();
+  }, 500));
+
+  // 事件冒泡
+  var bubbleElement1 = document.getElementById("evt1");
+  var bubbleElement2 = document.getElementById("evt2");
+  var bubbleElement3 = document.getElementById("evt3");
+  var bubbleElement4 = document.getElementById("evt4");
+  bubbleElement1.addEventListener('click', function () {
+    alert("0");
+  });
+  bubbleElement2.addEventListener('click', function () {
+    alert("1");
+    bubbles();
+  });
+  bubbleElement3.addEventListener('click', function () {
+    alert("2");
+  });
+  bubbleElement4.addEventListener('click', function () {
+    alert("3");
+    bubbles();
+  });
+
+  // 日期转换
+  getDateBySplit(new Date(), "-");
+  document.write(getDateBySplit(new Date(), "-"), "<br>");
+  document.write(getDateBySplit('2020-09-29', "/"), "<br>");
+  document.write(getDateBySplit('2020/09/29', "-"), "<br>");
+
+  document.write(getDateFormat.apply(new Date(), ["yyyy-MM-dd"]), "<br>");
+  document.write(getDateFormat.apply(new Date(), ["yyyy-MM-dd hh:mm:ss"]), "<br>");
+  document.write(getDateFormat.apply(new Date(), ["yyyy-MM-dd hh:mm:ss W"]), "<br>");
+
+</script>
+
 </html>
