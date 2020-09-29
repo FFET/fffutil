@@ -13,6 +13,7 @@ import { urlToBase64 } from "./file/urlToBase64";
 import { download } from "./download";
 import { getStrLength } from "./string";
 import { waterMark } from "./waterMark";
+import { debounce } from "./debounce";
 
 /**
  * foo test
@@ -38,4 +39,5 @@ export {
   waterMark,
   foo2,
   foo3,
+  debounce,
 };
