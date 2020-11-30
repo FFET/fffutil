@@ -16,3 +16,4 @@ yarn.lock
 rollup.config.js
 yarn.lock
 src
+docs

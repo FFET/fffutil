@@ -21,6 +21,7 @@
   "scripts": {
     "build": "rollup -c --environment  NODE_ENV:production",
     "dev": "rollup -cw --environment  NODE_ENV:development",
+    "docs": "jsdoc -c jsdoc.json",
     "prettier": "prettier --write  \"./**/*.{js,md,json}\""
   },
   "devDependencies": {
@@ -33,6 +34,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
+    "jsdoc": "^3.6.6",
     "loadsh": "0.0.4",
     "prettier": "^2.0.5",
     "rollup": "^2.21.0",
